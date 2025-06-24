@@ -1,0 +1,26 @@
+public class Main 
+{
+    public static boolean isValid(char[] x) 
+    {
+        int left = 0;
+        int right = x.length - 1;
+
+        while (left < right) 
+        {
+            if (x[left] != x[right]) 
+            {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+    public static void main(String[] args) 
+    {
+        Scanner in = new Scanner(System.in);
+        String s = in.next();
+        boolean result = isValid(s.toCharArray());
+        System.out.println(result ? "true" : "false");
+    }
+}
