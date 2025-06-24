@@ -1,0 +1,49 @@
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        
+        int n=in.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            a[i]=in.nextInt();
+        }
+        
+        int m=in.nextInt();
+        int b[]=new int[m];
+        for(int i=0;i<m;i++)
+        {
+            b[i]=in.nextInt();
+        }
+        
+        int len=n+m;
+        int merge[]=new int[len];
+        
+        for(int i=0;i<n;i++)
+        {
+            merge[i]=a[i];
+        }
+        
+        for(int i=0;i<m;i++)
+        {
+            merge[n+i]=b[i];
+
+        }
+        
+        
+        Arrays.sort(merge);
+        
+        if(len%2!=0)
+        {
+            System.out.println(String.format("%.2f",(double) merge[len/2]));
+        }
+        else
+        {
+            double mid=(merge[len/2]+merge[len/2-1])/2.0;
+            System.out.println(String.format("%.2f",mid));
+        }
+    }
+}
