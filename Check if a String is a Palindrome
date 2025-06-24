@@ -1,0 +1,25 @@
+import java.util.*;
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        Scanner in = new Scanner(System.in);
+        String x = in.next();
+
+        boolean flag = true;
+        int left = 0;
+        int right = x.length() - 1;
+
+        while (left < right) 
+        {
+            if (x.charAt(left) != x.charAt(right))   
+            {
+                flag = false;
+                break;
+            }
+            left++;
+            right--;
+        }
+        System.out.println(flag ? "true" : "false");
+    }
+}
