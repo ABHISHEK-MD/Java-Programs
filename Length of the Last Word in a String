@@ -1,0 +1,18 @@
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        
+        String word=in.nextLine();
+        
+        word=word.trim();
+        
+        String[] parts=word.split(" ");
+        
+        int len=parts[parts.length-1].length();
+        
+        System.out.println(len);
+    }
+}
