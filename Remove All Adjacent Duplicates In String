@@ -1,0 +1,27 @@
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        
+        String s=in.nextLine();
+        
+        StringBuilder result=new StringBuilder();
+        
+        for(char ch:s.toCharArray())
+        {
+            int len=result.length();
+            if(len!=0 && result.charAt(len-1)==ch)
+            {
+                result.deleteCharAt(len-1);
+            }
+            else
+            {
+                result.append(ch);
+            }
+        }
+        
+        System.out.println(result);
+    }
+}
