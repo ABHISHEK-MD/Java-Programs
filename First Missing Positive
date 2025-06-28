@@ -1,0 +1,39 @@
+import java.util.*;
+class Main
+{
+    public static int find(int nums[],int n)
+    {
+        boolean check[]=new boolean[n+1];
+        for(int num:nums)
+        {
+            if(num>0 && num<=n)
+            {
+                check[num]=true;
+            }
+        }
+        
+        for(int i=1;i<=n;i++)
+        {
+            if(!check[i])
+            {
+                return i;
+            }
+        }
+        return n+1;
+    }
+    
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        
+        int n=in.nextInt();
+        int a[]=new int[n];
+        
+        for(int i=0;i<n;i++)
+        {
+            a[i]=in.nextInt();
+        }
+        
+        System.out.println(find(a,n));
+    }
+}
