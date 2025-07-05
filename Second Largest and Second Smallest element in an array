@@ -1,53 +1,39 @@
-import java.util.*;
-
-class Main
+class SecondLargeSmall
 {
     public static void main(String[] args)
     {
-        Scanner in=new Scanner(System.in);
-        
-        int n=in.nextInt(); //Size of the Array
-        
-        int a[]=new int[n]; //Array Initialization
-        
+        int[] a = {10,40,20,50,30};
+        int n=a.length;
+
+        int large=Integer.MIN_VALUE;
+        int slarge=Integer.MIN_VALUE;
+
+        int small=Integer.MAX_VALUE;
+        int ssmall=Integer.MAX_VALUE;
+
         for(int i=0;i<n;i++)
         {
-            a[i]=in.nextInt(); //Input of Array Elements
-        }
-       
-        int min=Integer.MAX_VALUE;
-        int second_min=Integer.MAX_VALUE;
-        int max=Integer.MIN_VALUE;
-        int second_max=Integer.MIN_VALUE;
-        
-        for(int i=0;i<n;i++)
-        {
-            if(a[i]<min)
+            if(a[i]<small)
             {
-                min=a[i];
+                ssmall=small;
+                small=a[i];
             }
-            if(a[i]>max)
+            else if(a[i]<ssmall && a[i]>small)
             {
-                max=a[i];
+                ssmall=a[i];
             }
-        }
-        
-        System.out.println("Largest Element: "+max+"\n"+"Smallest Element: "+min);
-        
-        for(int i=0;i<n;i++)
-        {
-            if(a[i]<second_min && a[i]!=min)
+
+            if(a[i]>large)
             {
-                second_min=a[i];
+                slarge=large;
+                large=a[i];
             }
-            if(a[i]>second_max && a[i]!=max)
+            else if(a[i]>slarge && a[i]<large)
             {
-                second_max=a[i];
+                slarge=a[i];
             }
         }
-        
-        
-        System.out.println("Second Largest: "+second_max+"\n"+"Second Smallest: "+second_min);
-        
+        System.out.println(small +" "+ssmall);
+        System.out.println(slarge +" "+large);
     }
 }
