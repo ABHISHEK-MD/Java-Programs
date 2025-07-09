@@ -1,0 +1,28 @@
+import java.util.*;
+class Main
+{
+    public static int removeDuplicates(int[] a,int n)
+    {
+        int nextidx=1;
+        for(int i=1;i<n;i++)
+        {
+            if(a[i]>a[i-1])
+            {
+                a[nextidx]=a[i];
+                nextidx++;
+            }
+        }
+        return nextidx;
+    }
+    public static void main (String[] args) 
+    {
+        int a[]={0,0,1,1,2,2,2,2,3,3,3,3,3,4,4,4,4,5,4,6};
+        int n = a.length;
+        
+        int newSize=removeDuplicates(a,n);
+        for(int i=0;i<newSize;i++)
+        {
+            System.out.print(a[i]+" ");
+        }
+    }
+}
