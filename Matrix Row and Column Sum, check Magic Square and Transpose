@@ -1,0 +1,83 @@
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        int n=in.nextInt();
+        int m=in.nextInt();
+        
+        int[][] a = new int[n][m]; 
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                a[i][j]=in.nextInt();
+            }
+        }
+        
+        int target=0;
+        for(int i=0;i<n;i++)
+        {
+            target+=a[0][i];
+        }
+        boolean flag=true;
+        
+        int primary_diagonal=0,secondary_diagonal=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(i==j)
+                {
+                    primary_diagonal+=a[i][j];
+                }
+                if(i+j==n-1)
+                {
+                    secondary_diagonal+=a[i][j];
+                }
+            }
+        }
+        if(primary_diagonal!=target || secondary_diagonal!=target)
+        {
+            flag=false;
+        }
+        System.out.println("The sum of");
+        System.out.println("Primary Diagonal elements : "+primary_diagonal);
+        System.out.println("Secondary Diagonal elements : "+secondary_diagonal);
+       
+        for(int i=0;i<n;i++)
+        {
+            int row_sum=0;
+            for(int j=0;j<m;j++)
+            {
+                row_sum+=a[i][j];   
+            }
+            if(row_sum!=target) flag=false;
+            System.out.println("Row "+(i+1)+" : "+row_sum);
+        }
+        
+        for(int i=0;i<n;i++)
+        {
+            int col_sum=0;
+            for(int j=0;j<m;j++)
+            {
+                col_sum+=a[j][i];
+            }
+            if(col_sum!=target) flag=false;
+            System.out.println("Column "+(i+1)+" : "+col_sum);
+        }
+        
+        System.out.println(flag ? "Magic square" : "Not a magic square");
+        
+        System.out.println("Transpose : ");
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                System.out.print(a[j][i]+" ");
+            }
+            System.out.println();
+        }
+    }
+}
