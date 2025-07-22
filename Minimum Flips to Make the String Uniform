@@ -1,0 +1,39 @@
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        
+        String s=in.nextLine();
+        
+        int a_count=0,b_count=0;
+        
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)=='a')
+            {
+                a_count++;
+            }
+            if(s.charAt(i)=='b')
+            {
+                b_count++;
+            }
+        }
+        
+        System.out.println(Math.min(a_count,b_count));
+        /**
+        if(a_count==b_count)
+        {
+            System.out.print(a_count);
+        }
+        else if(a_count>b_count)
+        {
+            System.out.print(b_count);
+        }
+        else
+        {
+            System.out.print(a_count);
+        }**/
+    }
+}
