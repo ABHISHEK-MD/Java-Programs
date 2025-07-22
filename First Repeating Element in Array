@@ -1,0 +1,27 @@
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        
+        int n=in.nextInt();
+        
+        HashSet<Integer> li = new HashSet();
+        for(int i=0;i<n;i++)
+        {
+            int ele=in.nextInt();
+            if(li.contains(ele))
+            {
+                System.out.println("The first repeating element is "+ele);
+                return;
+            }
+            else
+            {
+                li.add(ele);
+            }
+        }
+        
+        System.out.println("There are no repeating elements");
+    }
+}
