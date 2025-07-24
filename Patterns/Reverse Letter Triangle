@@ -1,0 +1,26 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) 
+	{
+	    Scanner in=new Scanner(System.in);
+	    int n=in.nextInt();
+        
+        for(int i=n;i>=0;i--)
+        {
+            for(char j='A';j<'A'+i;j++)
+            {
+                System.out.print(j+" ");
+            }
+            System.out.println();
+        }
+	}
+}
+/**
+5
+A B C D E 
+A B C D 
+A B C 
+A B 
+A 
+**/
