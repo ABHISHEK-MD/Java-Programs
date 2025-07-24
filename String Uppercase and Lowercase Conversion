@@ -21,7 +21,7 @@ class Main
             {
                 lower+=ch;
             }
-             
+            //Slower due to String concat             
             if(ch>='a' && ch<='z')
             {
                 upper+=(char)(ch-32);
@@ -33,6 +33,6 @@ class Main
         }
         
         System.out.println(lower+" "+upper);
-        //System.out.println(s.toLowerCase()+" "+s.toUpperCase());
+        //System.out.println(s.toLowerCase()+" "+s.toUpperCase()); //Internally Optimised Better than manual approach
     }
 }
