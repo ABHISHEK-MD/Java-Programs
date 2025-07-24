@@ -1,0 +1,34 @@
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        
+        String s = in.nextLine();
+        
+        int[] freq=new int[26];
+        
+        LinkedHashMap<Character,Integer> seen=new LinkedHashMap();
+        
+        for(char c:s.toCharArray())
+        {
+            seen.put(c,seen.getOrDefault(c,0)+1);
+        }
+        
+        StringBuilder result=new StringBuilder();
+        
+        for(Map.Entry<Character,Integer> entry:seen.entrySet())
+        {
+            char c=entry.getKey();
+            int count=entry.getValue();
+            for(int i=0;i<count;i++)
+            {
+                result.append(c);    
+            }
+        }
+        
+        System.out.print(result);
+            
+    }
+}
