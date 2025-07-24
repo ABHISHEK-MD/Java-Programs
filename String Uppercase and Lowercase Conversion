@@ -33,5 +33,6 @@ class Main
         }
         
         System.out.println(lower+" "+upper);
+        //System.out.println(s.toLowerCase()+" "+s.toUpperCase());
     }
 }
