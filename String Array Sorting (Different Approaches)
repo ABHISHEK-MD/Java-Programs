@@ -1,0 +1,30 @@
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        
+        int n=in.nextInt();
+        in.nextLine();
+        String[] names=new String[n];
+
+        //ArrayList<String> names=new ArrayList();
+        //Collections.sort(names);
+        
+        for(int i=0;i<n;i++)
+        {
+            names[i]=in.nextLine();
+        }
+        
+        Arrays.sort(names);
+        
+        for(String name:names)
+        System.out.println(name);
+        
+        
+        //Case-Insensitive Sort: Collections.sort(names, String.CASE_INSENSITIVE_ORDER);
+        
+        //Remove Duplicates and Sort: TreeSet<String> — automatically handles duplicates and sorting.
+    }
+}
