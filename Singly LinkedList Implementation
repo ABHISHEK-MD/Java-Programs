@@ -1,0 +1,264 @@
+import java.util.*;
+class Node
+{
+    int data;
+    Node next;
+    Node(int data)
+    {
+        this.next=null;
+        this.data=data;
+    }
+}
+class ListLinked
+{
+    Node head;
+    Node tail;
+    public void addStart(int data)
+    {
+        Node newNode=new Node(data);
+        newNode.next=head;
+        head=newNode;
+        if(tail==null)
+        {
+            tail=newNode;
+        }
+    }
+    public void addEnd(int data)
+    {
+        if(head==null)
+        {
+            addStart(data);
+            return;
+        }
+        else
+        {
+            Node newNode=new Node(data);
+            tail.next=newNode;
+            tail=newNode;
+        }
+    }
+    public void addPos(int data,int pos)
+    {
+        int length=lengthCalci();
+        
+        if(pos<=0 || pos>length+1)
+        {
+            System.out.println("Invalid position");
+            return;
+        }
+        if(pos==1)
+        {
+            addStart(data);
+            return;
+        }
+        if(pos==length)
+        {
+            addEnd(data);
+            return;
+        }
+        Node temp=head;
+        Node newNode=new Node(data);
+        for(int i=1;i<pos-1;i++)
+        {
+            temp=temp.next;
+        }
+        newNode.next=temp.next;
+        temp.next=newNode;
+    }
+    public void deleteStart()
+    {
+        if(head==null)
+        {
+            System.out.println("List is empty");
+            return;
+        }
+        head=head.next;
+    }
+    public void deleteEnd()
+    {
+        if(head==null)
+        {
+            System.out.println("List is empty");
+            return;
+        }
+        if(head.next==null)
+        {
+            head=null;
+            return;
+        }
+        Node temp=head;
+        while(temp.next.next!=null)
+        {
+            temp=temp.next;
+        }
+        temp.next=null;
+    }
+    public void deletePos(int pos)
+    {
+        int length=lengthCalci();
+        if(pos<=0 || pos>length)
+        {
+            System.out.println("Invalid position");
+            return;
+        }
+        if(pos==1)
+        {
+            deleteStart();
+            return;
+        }
+        if(pos==length)
+        {
+            deleteEnd();
+            return;
+        }
+        Node temp=head;
+        for(int i=1;i<pos-1;i++)
+        {
+            temp=temp.next;
+        }
+        temp.next=temp.next.next;
+    }
+    public int get(int pos)
+    {
+        Node temp=head;
+        int len=lengthCalci();
+        if(pos<1 || pos>len)
+        {
+            System.out.println("Invalid position");
+            System.exit(0);
+        }
+        for(int i=1;i<pos;i++)
+        {
+            temp=temp.next;
+        }
+        return temp.data;
+    }
+    public void update(int pos,int newData)
+    {
+        int len=lengthCalci();
+        if(pos<1 || pos>len)
+        {
+            System.out.println("Invalid position");
+            return;
+        }
+        Node temp=head;
+        for(int i=1;i<pos;i++)
+        {
+            temp=temp.next;
+        }
+        temp.data=newData;
+    }
+    public void reverse()
+    {
+        Node current=head;
+        Node prev=null;
+        Node next;
+        while(current!=null)
+        {
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+        }
+        head=prev;
+    }
+    public int[] getMiddleNode()
+    {
+        if(head==null)
+        {
+            System.out.println("List is empty");
+            System.exit(0);
+        }
+        Node temp=head;
+        int len=lengthCalci();
+        for(int i=0;i<(len-1)/2;i++)
+        {
+            temp=temp.next;    
+        }
+        if(len%2==0)
+        {
+            return new int[]{temp.data,temp.next.data};
+        }
+        else
+        {
+            return new int[]{temp.data};
+        }
+    }
+    public void sortList()
+    {
+        //Implement it
+    }
+    public void detectCycle()
+    {
+        //Implement it
+    }
+    public int[] convertToArray()
+    {
+        int len=lengthCalci();
+        int[] a=new int[len];
+        Node temp=head;
+        for(int i=0;i<len;i++)
+        {
+            a[i]=temp.data;
+            temp=temp.next;
+        }
+        return a;
+    }
+    public int lengthCalci()
+    {
+        int len=0;
+        Node temp=head;
+        while(temp!=null)
+        {
+            len++;
+            temp=temp.next;
+        }
+        return len;
+    }
+    public void display()
+    {
+        if(head==null)
+        {
+            System.out.println("List is empty");
+            return;
+        }
+        Node temp=head;
+        while(temp!=null)
+        {
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+    }
+}
+class Main
+{
+    public static void main(String[] args)
+    {
+        ListLinked li=new ListLinked();
+        li.addStart(5);
+        li.addStart(4);
+        li.addEnd(6);
+        li.addPos(1,1);
+        li.addPos(2,2);
+        li.addPos(3,3);
+        li.update(3,3);
+        
+        li.display();
+        System.out.println();
+        System.out.println(Arrays.toString(li.getMiddleNode()));
+        
+        li.deletePos(3);
+        
+        li.display();
+        System.out.println();
+        System.out.println(Arrays.toString(li.getMiddleNode()));
+        
+        
+        int[] a=li.convertToArray();
+        for(int i=0;i<a.length;i++)
+        {
+            System.out.println(a[i]);
+        }
+        
+    }
+}
