@@ -1,0 +1,26 @@
+import java.util.*;
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		Scanner in=new Scanner(System.in);
+
+		int n=in.nextInt();
+		
+		int temp=n,count_dup=n;
+		int arm=0;
+		int len=0;
+		while(count_dup>0)
+		{
+			count_dup/=10;
+			len++;
+		}	
+		while(n>0)
+		{
+			int digit=n%10;
+			arm+=Math.pow(digit,len);
+			n/=10;
+		}
+		System.out.println((arm==temp) ? "true" : "false");
+	}
+}
