@@ -1,0 +1,30 @@
+import java.util.*;
+class Main
+{
+    static void reverse(int l,int r,int a[])
+    {
+        if(l>=r)
+        {
+            return;
+        }
+        int temp = a[l];
+        a[l] = a[r];
+        a[r] = temp;
+        
+        reverse(l+1,r-1,a);
+    }
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        
+        int a[] = {1,2,3,4,5,6,7};
+        int n = 7;
+        
+        for(int i:a) System.out.print(i+" ");
+        System.out.println();
+    
+        reverse(0,n-1,a);
+        
+        for(int i:a) System.out.print(i+" ");
+    }
+}
