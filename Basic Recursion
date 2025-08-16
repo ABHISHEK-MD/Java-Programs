@@ -1,0 +1,39 @@
+import java.util.*;
+public class Main
+{
+    static int count=0;
+    static void print()
+    {
+        if(count==5) return;
+        count++;
+        System.out.println(count);
+        print();
+    }
+    
+    public static void main(String[] args)
+    {
+        print();
+    }
+}
+
+
+import java.util.*;
+public class Main
+{
+    static void print(int n)
+    {
+        if(n>5) return;
+        
+        System.out.print(n+" ");
+        print(n+1);
+    }
+    
+    
+    public static void main(String[] args)
+    {
+        print(1);
+    }
+}
+
+
+
