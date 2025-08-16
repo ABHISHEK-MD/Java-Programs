@@ -1,0 +1,38 @@
+import java.util.*;
+public class Main
+{
+    static int sum(int n)
+    {
+        if(n<1)
+        {
+            return 0;
+        }
+        return n+sum(n-1);
+    }
+    
+    public static void main(String[] args)
+    {
+        System.out.println(sum(5));
+    }
+}
+
+
+import java.util.*;
+public class Main
+{
+    static void sum(int i,int n)
+    {
+        if(i<1)
+        {
+            System.out.println(n);
+            return;
+        }
+        sum(i-1,n+i);
+        
+    }
+    
+    public static void main(String[] args)
+    {
+       sum(5,0);
+    }
+}
