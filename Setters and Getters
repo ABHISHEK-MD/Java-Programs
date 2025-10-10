@@ -1,0 +1,110 @@
+import java.util.*;
+class Country
+{
+    private String name;
+    private String countryCode;
+    private String isdCode;
+    
+    public Country()
+    {
+        this.name=name;
+        this.countryCode=countryCode;
+        this.isdCode=isdCode;
+    }
+    
+    public void setName(String name)
+    {
+        this.name=name;
+    }
+    public void setcountryCode(String countryCode)
+    {
+        this.countryCode=countryCode;
+    }
+    public void setisdCode(String isdCode)
+    {
+        this.isdCode=isdCode;
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    public String getCountryCode()
+    {
+        return countryCode;
+    }
+    public String getisdCode()
+    {
+        return isdCode;
+    }
+}
+class CountryMain
+{
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        
+        String name=in.nextLine();
+        String countryCode=in.nextLine();
+        String isdCode=in.nextLine();
+        
+        Country c = new Country(); 
+        
+        c.setName(name);
+        c.setcountryCode(countryCode);
+        c.setisdCode(isdCode);
+        
+        System.out.println("Country Name : "+c.getName());
+        System.out.println("Country Code : "+c.getCountryCode());
+        System.out.println("ISD Code : "+c.getisdCode());
+        
+    }
+    
+}
+
+
+
+
+
+
+
+import java.util.*;
+class Venue
+{
+    private String name;
+    private String city;
+    
+    public Venue(String name, String city)
+    {
+        this.name=name;
+        this.city=city;
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    
+    public String getCity()
+    {
+        return city;
+    }
+}
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        
+        String name = in.nextLine();
+        String city = in.nextLine();
+        
+        Venue v = new Venue(name,city);
+        
+        System.out.println("Venue Details");
+
+        System.out.println("Venue Name: "+v.getName());
+        System.out.println("City Name: "+v.getCity());
+        
+    }
+}
