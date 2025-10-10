@@ -1,0 +1,28 @@
+import java.util.*;
+class CharCount
+{
+    public CharCount(String word,char c)
+    {
+        int count=0;
+        for(int i=0;i<word.length();i++)
+        {
+            if(word.charAt(i)==c)
+            {
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        
+        String word = in.nextLine();
+        char c = in.next().charAt(0);
+        
+        new CharCount(word, c);
+    }
+}
