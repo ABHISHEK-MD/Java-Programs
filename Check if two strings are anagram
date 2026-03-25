@@ -1,0 +1,53 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String s = in.nextLine();
+        String t = in.nextLine();
+
+        int[] freqS = new int[26];
+        int[] freqT = new int[26];
+
+        for (char c : s.toCharArray()) {
+            freqS[c - 'a']++;
+        }
+
+        for (char c : t.toCharArray()) {
+            freqT[c - 'a']++;
+        }
+
+        boolean isAnagram = true;
+
+        for (int i = 0; i < 26; i++) {
+            if (freqS[i] != freqT[i]) {
+                isAnagram = false;
+                break;
+            }
+        }
+
+        System.out.println(isAnagram ? "Valid Anagram" : "Invalid Anagram");
+
+        System.out.print("S: ");
+        printFreq(freqS);
+
+        System.out.print("T: ");
+        printFreq(freqT);
+    }
+
+    public static void printFreq(int[] freq) {
+        boolean first=true;
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] != 0) {
+                if(!first)
+                {
+                    System.out.print(" ");
+                }
+                System.out.print((char)(i + 'a') + ":" + freq[i]);
+                first=false;
+            }
+        }
+        System.out.println();
+    }
+}
