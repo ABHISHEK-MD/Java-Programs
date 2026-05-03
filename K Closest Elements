@@ -1,0 +1,63 @@
+/** Given a sorted list of integers, find K elements closest to a target value.
+If two numbers have the same distance, choose the higher value.
+
+Approach
+Calculate distance from target using Math.abs
+Sort using custom comparator:
+Smaller distance first
+If equal → larger value first
+Print first K elements
+Example
+
+Input:
+5
+2 4 6 8 10
+5
+3
+
+Output:
+6 4 8**/
+
+
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        
+        int n = in.nextInt();
+        
+        List<Integer> prices = new ArrayList<>();
+        
+        for(int i=0;i<n;i++)
+        {
+            int temp = in.nextInt();
+            prices.add(temp);
+        }
+        
+        int target = in.nextInt();
+        int k = in.nextInt();
+        
+        Collections.sort(prices, (a,b)->{
+           
+           int diffA = Math.abs(a-target);
+           int diffB = Math.abs(b-target);
+           
+           if(diffA==diffB)
+           {
+               return b-a;
+           }
+           
+           return diffA-diffB;
+            
+        });
+        
+        
+        for(int i=0;i<k;i++)
+        {
+            System.out.print(prices.get(i)+" ");
+        }
+        
+    }
+}
